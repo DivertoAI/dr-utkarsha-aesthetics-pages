@@ -57,7 +57,7 @@ export default function ServicesPage() {
         </div>
 
         {(Object.keys(servicesByCategory) as Array<keyof typeof servicesByCategory>).map((category) => (
-          <section key={category} className="category-block services-category-block">
+          <section key={category} id={category.toLowerCase()} className="category-block services-category-block">
             <div className="services-category-head">
               <div>
                 <p className="kicker">{category} Services</p>

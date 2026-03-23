@@ -38,3 +38,17 @@ These images were selected from Openverse search results and downloaded locally 
 - `body-3.jpg`
   source: https://live.staticflickr.com/65535/50077592578_55845d2983_b.jpg
   license: Public Domain Mark (`pdm`)
+
+## Lottie Animation Sources
+
+These JSON animations are used for lightweight homepage motion accents.
+
+- `lib/lottie/ripple.json`
+  source: https://raw.githubusercontent.com/airbnb/lottie-web/master/test/animations/ripple.json
+  license: Apache-2.0 (airbnb/lottie-web)
+- `lib/lottie/lights.json`
+  source: https://raw.githubusercontent.com/airbnb/lottie-web/master/test/animations/lights.json
+  license: Apache-2.0 (airbnb/lottie-web)
+- `lib/lottie/starfish.json`
+  source: https://raw.githubusercontent.com/airbnb/lottie-web/master/test/animations/starfish.json
+  license: Apache-2.0 (airbnb/lottie-web)

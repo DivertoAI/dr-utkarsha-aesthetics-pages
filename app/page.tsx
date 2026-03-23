@@ -13,6 +13,7 @@ import {
   testimonials
 } from "@/lib/clinic-data";
 import { CategoryVisual, JourneyVisual, SectionLeadVisual } from "@/components/section-visuals";
+import { StoryLottie } from "@/components/story-lottie";
 
 export const metadata: Metadata = {
   title: "Aesthetic, Dental, Skin & Hair Clinic in Malleswaram, Bangalore",
@@ -64,18 +65,119 @@ const faqSchema = {
   }))
 };
 
+type StoryMilestone = {
+  year: string;
+  title: string;
+  detail: string;
+  ctaLabel: string;
+  href: string;
+  animation: "lights" | "ripple" | "starfish";
+  external?: boolean;
+};
+
+type IntentAction = {
+  title: string;
+  detail: string;
+  href: string;
+  external?: boolean;
+};
+
+const storyMilestones: StoryMilestone[] = [
+  {
+    year: "2002",
+    title: "Malleswaram Start",
+    detail:
+      "Dr. Utkarsha began with a specialist-first philosophy: detailed diagnosis, conservative planning, and treatment transparency.",
+    ctaLabel: "Visit Clinic",
+    href: "/contact",
+    animation: "ripple"
+  },
+  {
+    year: "Expertise",
+    title: "Surgical + Aesthetic Depth",
+    detail:
+      "Oral and maxillofacial surgery roots combined with aesthetic medicine and trichology to solve both function and appearance together.",
+    ctaLabel: "Meet Team",
+    href: "#experts",
+    animation: "starfish"
+  },
+  {
+    year: "Integrated",
+    title: "One Clinic, Multi-Concern Care",
+    detail:
+      "Dental, skin, hair, and body services are coordinated under one doctor-led journey so plans stay coherent and efficient.",
+    ctaLabel: "Explore Services",
+    href: "/services",
+    animation: "lights"
+  },
+  {
+    year: "Bangalore",
+    title: "Trusted by High-Intent Patients",
+    detail:
+      "Professionals, families, and transformation-focused patients choose the clinic for natural outcomes and high follow-through.",
+    ctaLabel: "Start on WhatsApp",
+    href: clinic.whatsapp,
+    animation: "ripple",
+    external: true
+  }
+];
+
+const intentActions: IntentAction[] = [
+  {
+    title: "Book a Doctor Consultation",
+    detail: "Direct booking with the clinic team and faster slot matching.",
+    href: clinic.whatsapp,
+    external: true
+  },
+  {
+    title: "See Treatments by Concern",
+    detail: "Pick dental, skin, hair, or body pathways built for Bangalore lifestyles.",
+    href: "/services"
+  },
+  {
+    title: "Corporate Partnerships",
+    detail: "Structured confidence and grooming programs for teams and leadership cohorts.",
+    href: "/businesses"
+  }
+];
+
+const quickTreatmentPaths = [
+  {
+    label: "Dental",
+    focus: "Smile & function",
+    href: "/services/dental-implants-in-malleswaram"
+  },
+  {
+    label: "Hair",
+    focus: "Transplant & regrowth",
+    href: "/services/hair-transplant-in-malleswaram"
+  },
+  {
+    label: "Skin",
+    focus: "Acne to rejuvenation",
+    href: "/services/acne-treatment-malleswaram"
+  },
+  {
+    label: "Body",
+    focus: "Contour planning",
+    href: "/services/body-shaping-malleswaram"
+  }
+] as const;
+
 export default function HomePage() {
   return (
     <>
-      <section className="hero">
+      <section className="hero hero-story">
         <div className="hero-aurora" aria-hidden />
+        <div className="hero-gridlines" aria-hidden />
         <div className="container hero-grid">
           <div className="hero-copy">
-            <p className="kicker">Premium Aesthetic Care in Bangalore</p>
-            <h1>Meet Dr. Utkarsha. The Face Behind Bengaluru’s Premium Aesthetic Transformations.</h1>
+            <p className="kicker">Doctor Story · Bangalore Trust · Premium Outcomes</p>
+            <h1>From One Malleswaram Practice to a Landmark Aesthetic Name in Bengaluru.</h1>
             <p className="lead">
-              Specialist-led dental, skin, hair and body care from Malleswaram. Built for patients who want standout
-              results with natural finish, safety, and clear treatment planning.
+              Dr. Utkarsha built this clinic around one promise: if a treatment improves confidence, it must also stay
+              natural, safe, and clinically defensible. That promise now powers dental, skin, hair, and body
+              transformations under one roof.
             </p>
             <div className="cta-row">
               <a href={`tel:${clinic.primaryPhone.replace(/\s+/g, "")}`} className="btn btn-primary">
@@ -84,15 +186,44 @@ export default function HomePage() {
               <a href={clinic.whatsapp} className="btn btn-secondary" target="_blank" rel="noreferrer">
                 WhatsApp Fast-Track
               </a>
+              <Link href="/services" className="btn btn-ghost">
+                Explore Treatment Paths
+              </Link>
+            </div>
+            <div className="intent-grid">
+              {intentActions.map((item) =>
+                item.external ? (
+                  <a key={item.title} href={item.href} className="intent-card" target="_blank" rel="noreferrer">
+                    <h3>{item.title}</h3>
+                    <p>{item.detail}</p>
+                  </a>
+                ) : (
+                  <Link key={item.title} href={item.href} className="intent-card">
+                    <h3>{item.title}</h3>
+                    <p>{item.detail}</p>
+                  </Link>
+                )
+              )}
             </div>
             <div className="hero-meta">
-              <p>Internationally trained facial aesthetic surgeon</p>
-              <p>Doctor-led personalized treatment design</p>
-              <p>One premium destination for dental, skin, hair and body</p>
+              <p>Specialist-led care since 2002</p>
+              <p>Doctor-led personalized treatment design for every face and body type</p>
+              <p>Premium destination in Malleswaram for dental, skin, hair, and body care</p>
+            </div>
+            <div className="quick-paths">
+              {quickTreatmentPaths.map((item) => (
+                <Link key={item.label} href={item.href} className="quick-path-chip">
+                  <span>{item.label}</span>
+                  <strong>{item.focus}</strong>
+                </Link>
+              ))}
             </div>
           </div>
           <div className="hero-star-card">
             <span className="hero-badge hero-badge-top">Doctor-Led Since 2002</span>
+            <div className="hero-lottie hero-lottie-top">
+              <StoryLottie variant="lights" speed={0.85} />
+            </div>
             <Image src="/doctors/dr-utkarsha.png" alt="Dr Utkarsha Lokesh" width={640} height={760} priority />
             <div className="hero-star-overlay">
               <span className="hero-badge hero-badge-bottom">Bangalore · Malleswaram</span>
@@ -103,6 +234,42 @@ export default function HomePage() {
                 <Link href="/businesses">Corporate Programs</Link>
               </div>
             </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section story-section" id="doctor-story">
+        <div className="container">
+          <div className="section-head story-head">
+            <div>
+              <p className="kicker">Doctor Journey</p>
+              <h2>The Story Behind the Clinic’s Reputation</h2>
+            </div>
+            <p>
+              Patients in Bangalore usually come for outcomes, but they stay for trust. This clinic grew by combining
+              surgical precision, aesthetic judgment, and follow-through after treatment.
+            </p>
+          </div>
+          <div className="grid four story-grid">
+            {storyMilestones.map((item) => (
+              <article className="story-card" key={item.title}>
+                <div className="story-card-top">
+                  <p className="story-year">{item.year}</p>
+                  <StoryLottie variant={item.animation} className="story-lottie" speed={0.8} />
+                </div>
+                <h3>{item.title}</h3>
+                <p>{item.detail}</p>
+                {item.external ? (
+                  <a href={item.href} target="_blank" rel="noreferrer" className="story-link">
+                    {item.ctaLabel}
+                  </a>
+                ) : (
+                  <Link href={item.href} className="story-link">
+                    {item.ctaLabel}
+                  </Link>
+                )}
+              </article>
+            ))}
           </div>
         </div>
       </section>
@@ -132,6 +299,13 @@ export default function HomePage() {
             <p className="kicker">Most Requested</p>
             <h2>Featured Treatments in Bangalore</h2>
           </div>
+          <div className="category-quick-row">
+            {(Object.keys(servicesByCategory) as Array<keyof typeof servicesByCategory>).map((category) => (
+              <Link key={category} href={`/services/#${category.toLowerCase()}`} className="category-quick-link">
+                {category}
+              </Link>
+            ))}
+          </div>
           <div className="grid four">
             {highlightedServices.map((service) => (
               <article className="service-card" key={service.slug}>
@@ -147,7 +321,7 @@ export default function HomePage() {
       </section>
 
       <section className="section">
-        <div className="container">
+        <div className="container" id="experts">
           <div className="section-head">
             <p className="kicker">Experts</p>
             <h2>Core Clinical Team</h2>
