@@ -65,7 +65,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
               <div className="footer-logo-wrap">
                 <Image src="/logo/clinic-logo.png" alt="Dr Utkarsha Aesthetics logo" width={260} height={82} loading="lazy" />
               </div>
-              <h2>{clinic.brand}</h2>
               <p>{clinic.tagline}</p>
               <p>{clinic.foundedText}</p>
             </section>
