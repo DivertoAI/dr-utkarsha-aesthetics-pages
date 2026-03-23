@@ -516,23 +516,48 @@ export const highlightedServices = highlightedServiceSlugs
 
 export const getServiceBySlug = (slug: string) => services.find((service) => service.slug === slug);
 
-const serviceImagePool = {
-  Dental: ["/service-images/dental-1.jpg", "/service-images/dental-2.jpg", "/service-images/dental-3.jpg"],
-  Hair: ["/service-images/hair-1.jpg", "/service-images/hair-2.jpg", "/service-images/hair-3.jpg"],
-  Skin: ["/service-images/skin-1.jpg", "/service-images/skin-2.jpg", "/service-images/skin-3.jpg"],
-  Body: ["/service-images/body-1.jpg", "/service-images/body-2.jpg", "/service-images/body-3.jpg"]
-} as const;
+const serviceImageBySlug: Record<string, string> = {
+  "cosmetic-dentistry-services-malleswaram": "/service-images/clinic-s1.jpg",
+  "dental-implants-in-malleswaram": "/service-images/clinic-s2.jpg",
+  "maxillofacial-surgery-malleswaram": "/service-images/clinic-s4.jpg",
+  "teeth-whitening-services-malleswaram": "/service-images/clinic-s3.jpg",
+  "root-canal-treatment-malleswaram": "/service-images/clinic-s2.jpg",
+  "peridontia-malleswaram-bangalore": "/service-images/clinic-s4.jpg",
+  sterlization: "/service-images/clinic-sl1.jpg",
+  "hair-loss-treatment-malleswaram": "/service-images/clinic-hair-loss.jpg",
+  "hair-transplant-in-malleswaram": "/service-images/clinic-hair-transplant.jpg",
+  "prp-for-hair-loss": "/service-images/clinic-prp.jpg",
+  "mesotherapy-for-hair-growth": "/service-images/clinic-mesotherapy.jpg",
+  "laser-hair-removal": "/service-images/clinic-laser-hair-removal.jpg",
+  "chemical-peel-malleswaram": "/service-images/clinic-chemical-peel.jpg",
+  "acne-treatment-malleswaram": "/service-images/clinic-acne-treatment.jpg",
+  "prp-for-skin-malleswaram": "/service-images/clinic-prp-skin.jpg",
+  "botolinium-toxin-botox": "/service-images/clinic-botox.jpg",
+  "derma-filler": "/service-images/clinic-derma-filler.jpg",
+  "anti-aging-bangalore": "/service-images/clinic-anti-aging.jpg",
+  "tattoo-removal-center-in-bangalore": "/service-images/clinic-tatoo-removal.jpg",
+  "skin-tightening-malleswaram": "/service-images/clinic-skin-tightening.jpg",
+  "face-rejuvenation": "/service-images/clinic-face-rejuvenation.jpg",
+  "face-lift": "/service-images/clinic-face-lift.jpg",
+  "breast-firming": "/service-images/clinic-breast-firming.jpg",
+  gynecomastia: "/service-images/clinic-gynecomastia.jpg",
+  "body-shaping-malleswaram": "/service-images/clinic-body-shaping.jpg",
+  "bra-fat-reduction": "/service-images/clinic-bra-fat.jpg",
+  "radio-frequency-cavitation": "/service-images/clinic-radio.jpg",
+  "fat-reduction": "/service-images/clinic-fat-reduction.jpg",
+  "spot-fat-reduction": "/service-images/clinic-spot-fat.jpg",
+  "cryotherapy-treatment-in-malleswaram": "/service-images/clinic-cryotherapy.jpg",
+  "top-dental-care-clinic-malleswaram": "/service-images/clinic-sl2.jpg",
+  "best-dentists-in-malleswaram": "/service-images/clinic-sl3.jpg"
+};
 
-const hash = (value: string) => {
-  let result = 0;
-  for (let index = 0; index < value.length; index += 1) {
-    result = (result << 5) - result + value.charCodeAt(index);
-    result |= 0;
-  }
-  return Math.abs(result);
+const serviceCategoryFallback: Record<Service["category"], string> = {
+  Dental: "/service-images/clinic-s1.jpg",
+  Hair: "/service-images/clinic-hair-transplant.jpg",
+  Skin: "/service-images/clinic-acne-treatment.jpg",
+  Body: "/service-images/clinic-body-shaping.jpg"
 };
 
 export const getServiceImage = (service: Service) => {
-  const pool = serviceImagePool[service.category];
-  return pool[hash(service.slug) % pool.length];
+  return serviceImageBySlug[service.slug] ?? serviceCategoryFallback[service.category];
 };
