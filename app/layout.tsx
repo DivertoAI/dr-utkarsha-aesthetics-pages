@@ -1,7 +1,10 @@
 import type { Metadata } from "next";
 import Link from "next/link";
+import type { CSSProperties } from "react";
+import Image from "@/components/clinic-image";
 import "./globals.css";
 import { clinic, siteUrl } from "@/lib/clinic-data";
+import { withBasePath } from "@/lib/base-path";
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
@@ -39,14 +42,24 @@ const navLinks = [
 ];
 
 export default function RootLayout({ children }: { children: React.ReactNode }) {
+  const patternVars = {
+    "--page-pattern-url": `url(${withBasePath("/patterns/page-lattice.svg")})`,
+    "--nav-pattern-url": `url(${withBasePath("/patterns/nav-ribbon.svg")})`
+  } as CSSProperties;
+
   return (
     <html lang="en">
-      <body>
+      <body style={patternVars}>
         <header className="site-header">
           <div className="container nav-wrap">
             <Link href="/" className="brand" aria-label="Dr Utkarsha Aesthetics home">
-              <span className="brand-kicker">Bangalore Aesthetic Clinic</span>
-              <span className="brand-name">Dr Utkarsha Aesthetics</span>
+              <span className="brand-logo-wrap">
+                <Image src="/logo/clinic-logo.png" alt="Dr Utkarsha Aesthetics logo" width={168} height={58} priority />
+              </span>
+              <span className="brand-text">
+                <span className="brand-kicker">Bangalore Aesthetic Clinic</span>
+                <span className="brand-name">Dr Utkarsha Aesthetics</span>
+              </span>
             </Link>
             <nav className="nav">
               {navLinks.map((link) => (

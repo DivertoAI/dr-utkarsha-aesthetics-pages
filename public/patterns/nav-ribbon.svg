@@ -1,0 +1,21 @@
+<svg width="1600" height="180" viewBox="0 0 1600 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#9BCC7A" stop-opacity="0.22" />
+      <stop offset="1" stop-color="#F2C14B" stop-opacity="0.18" />
+    </linearGradient>
+    <linearGradient id="g2" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#8FCB73" stop-opacity="0.18" />
+      <stop offset="1" stop-color="#FFE17A" stop-opacity="0.16" />
+    </linearGradient>
+  </defs>
+  <path d="M-40 124C120 64 276 62 420 90C564 118 720 170 862 140C1004 110 1126 34 1284 30C1426 26 1510 74 1660 96V180H-40V124Z" fill="url(#g1)" />
+  <path d="M-80 74C88 136 258 140 420 112C584 84 744 20 900 24C1060 28 1210 92 1366 108C1494 122 1578 104 1680 84V180H-80V74Z" fill="url(#g2)" />
+  <g opacity="0.35">
+    <circle cx="196" cy="54" r="3" fill="#75B96A" />
+    <circle cx="420" cy="42" r="2.5" fill="#EEC65B" />
+    <circle cx="760" cy="68" r="3" fill="#75B96A" />
+    <circle cx="1028" cy="52" r="2.5" fill="#EEC65B" />
+    <circle cx="1310" cy="64" r="3" fill="#75B96A" />
+  </g>
+</svg>

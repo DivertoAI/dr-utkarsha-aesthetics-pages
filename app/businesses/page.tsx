@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { clinic } from "@/lib/clinic-data";
 
 export const metadata: Metadata = {
-  title: "Bangalore Partnership Playbook for Aesthetic Business Growth",
+  title: "Corporate Aesthetic Partnerships in Bangalore",
   description:
-    "Research-backed business partnership strategy for Dr Utkarsha Aesthetics in Bangalore across lifestyle events, doctors, HR teams, sports communities and creator networks."
+    "Business partnership programs for Dr Utkarsha Aesthetics in Bangalore across lifestyle events, healthcare collaborators, HR teams, sports communities, and creator networks."
 };
 
 const partnershipPlays = [
@@ -51,10 +51,10 @@ export default function BusinessesPage() {
     <section className="section page-top businesses-page">
       <div className="container narrow">
         <p className="kicker">For Businesses in Bangalore</p>
-        <h1>Bangalore Partnership Blueprint for Omega Digi + AI</h1>
+        <h1>Corporate Aesthetic Partnership Programs</h1>
         <p className="lead">
-          A research-led playbook to build predictable B2B lead flow for Dr Utkarsha’s clinic across premium events,
-          healthcare partners, corporates, sports communities, and creator networks.
+          Structured partnership tracks to build consistent B2B referral flow for Dr Utkarsha&apos;s clinic across
+          premium events, healthcare partners, corporates, sports communities, and creator networks.
         </p>
 
         <div className="business-chip-row">

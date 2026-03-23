@@ -52,3 +52,16 @@ These JSON animations are used for lightweight homepage motion accents.
 - `lib/lottie/starfish.json`
   source: https://raw.githubusercontent.com/airbnb/lottie-web/master/test/animations/starfish.json
   license: Apache-2.0 (airbnb/lottie-web)
+
+## Brand Asset Source
+
+- `public/logo/clinic-logo.png`
+  source: https://drutkarshas.com/wp-content/uploads/2025/07/Uk-Logo-1-e1752945703769.png
+  usage: Clinic header logo from official WordPress media library
+
+## Pattern Assets
+
+- `public/patterns/nav-ribbon.svg`
+  source: custom SVG created for this rebuild
+- `public/patterns/page-lattice.svg`
+  source: custom SVG created for this rebuild
