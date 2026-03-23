@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import type { CSSProperties } from "react";
+import Image from "@/components/clinic-image";
 import SiteHeader from "@/components/site-header";
 import "./globals.css";
 import { clinic, siteUrl } from "@/lib/clinic-data";
@@ -61,6 +62,9 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <footer className="site-footer">
           <div className="container footer-grid">
             <section>
+              <div className="footer-logo-wrap">
+                <Image src="/logo/clinic-logo.png" alt="Dr Utkarsha Aesthetics logo" width={260} height={82} loading="lazy" />
+              </div>
               <h2>{clinic.brand}</h2>
               <p>{clinic.tagline}</p>
               <p>{clinic.foundedText}</p>
