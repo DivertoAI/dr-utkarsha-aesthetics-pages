@@ -1,0 +1,24 @@
+<svg width="720" height="720" viewBox="0 0 720 720" fill="none" xmlns="http://www.w3.org/2000/svg">
+  <defs>
+    <radialGradient id="og1" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(360 360) rotate(90) scale(320)">
+      <stop stop-color="#FCEFA7" stop-opacity="0.65" />
+      <stop offset="1" stop-color="#FCEFA7" stop-opacity="0" />
+    </radialGradient>
+  </defs>
+  <circle cx="360" cy="360" r="320" fill="url(#og1)" />
+  <g opacity="0.35">
+    <circle cx="360" cy="360" r="240" stroke="#8EC76F" />
+    <circle cx="360" cy="360" r="168" stroke="#8EC76F" />
+    <circle cx="360" cy="360" r="96" stroke="#8EC76F" />
+    <path d="M40 360H680" stroke="#EFC963" />
+    <path d="M360 40V680" stroke="#EFC963" />
+    <path d="M122 122L598 598" stroke="#EFC963" />
+    <path d="M598 122L122 598" stroke="#EFC963" />
+  </g>
+  <g opacity="0.4">
+    <circle cx="360" cy="120" r="5" fill="#6FB264" />
+    <circle cx="120" cy="360" r="5" fill="#6FB264" />
+    <circle cx="360" cy="600" r="5" fill="#6FB264" />
+    <circle cx="600" cy="360" r="5" fill="#6FB264" />
+  </g>
+</svg>

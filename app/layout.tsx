@@ -44,12 +44,17 @@ const navLinks = [
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   const patternVars = {
     "--page-pattern-url": `url(${withBasePath("/patterns/page-lattice.svg")})`,
-    "--nav-pattern-url": `url(${withBasePath("/patterns/nav-ribbon.svg")})`
+    "--nav-pattern-url": `url(${withBasePath("/patterns/nav-ribbon.svg")})`,
+    "--flow-pattern-url": `url(${withBasePath("/patterns/flow-body.svg")})`,
+    "--orb-pattern-url": `url(${withBasePath("/patterns/orb-grid.svg")})`
   } as CSSProperties;
 
   return (
     <html lang="en">
       <body style={patternVars}>
+        <div className="page-ornament page-ornament-top" aria-hidden />
+        <div className="page-ornament page-ornament-mid" aria-hidden />
+        <div className="page-ornament page-ornament-bottom" aria-hidden />
         <header className="site-header">
           <div className="container nav-wrap">
             <Link href="/" className="brand" aria-label="Dr Utkarsha Aesthetics home">

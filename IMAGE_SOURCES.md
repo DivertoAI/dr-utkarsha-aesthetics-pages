@@ -65,3 +65,7 @@ These JSON animations are used for lightweight homepage motion accents.
   source: custom SVG created for this rebuild
 - `public/patterns/page-lattice.svg`
   source: custom SVG created for this rebuild
+- `public/patterns/flow-body.svg`
+  source: custom SVG created for this rebuild
+- `public/patterns/orb-grid.svg`
+  source: custom SVG created for this rebuild
