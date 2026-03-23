@@ -59,11 +59,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className="container nav-wrap">
             <Link href="/" className="brand" aria-label="Dr Utkarsha Aesthetics home">
               <span className="brand-logo-wrap">
-                <Image src="/logo/clinic-logo.png" alt="Dr Utkarsha Aesthetics logo" width={168} height={58} priority />
-              </span>
-              <span className="brand-text">
-                <span className="brand-kicker">Bangalore Aesthetic Clinic</span>
-                <span className="brand-name">Dr Utkarsha Aesthetics</span>
+                <Image src="/logo/clinic-logo.png" alt="Dr Utkarsha Aesthetics logo" width={320} height={100} priority />
               </span>
             </Link>
             <nav className="nav">

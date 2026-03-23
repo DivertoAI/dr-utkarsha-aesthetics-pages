@@ -1,21 +1,32 @@
-<svg width="1600" height="180" viewBox="0 0 1600 180" fill="none" xmlns="http://www.w3.org/2000/svg">
+<svg width="1600" height="220" viewBox="0 0 1600 220" fill="none" xmlns="http://www.w3.org/2000/svg">
   <defs>
-    <linearGradient id="g1" x1="0" y1="0" x2="1" y2="1">
-      <stop offset="0" stop-color="#9BCC7A" stop-opacity="0.22" />
+    <linearGradient id="nrBase" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#A8D58A" stop-opacity="0.28" />
+      <stop offset="0.56" stop-color="#F7E08D" stop-opacity="0.2" />
+      <stop offset="1" stop-color="#7DBB72" stop-opacity="0.2" />
+    </linearGradient>
+    <linearGradient id="nrWaveA" x1="0" y1="1" x2="1" y2="0">
+      <stop offset="0" stop-color="#7EBF71" stop-opacity="0.22" />
       <stop offset="1" stop-color="#F2C14B" stop-opacity="0.18" />
     </linearGradient>
-    <linearGradient id="g2" x1="0" y1="1" x2="1" y2="0">
-      <stop offset="0" stop-color="#8FCB73" stop-opacity="0.18" />
-      <stop offset="1" stop-color="#FFE17A" stop-opacity="0.16" />
+    <linearGradient id="nrWaveB" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0" stop-color="#F6D66E" stop-opacity="0.16" />
+      <stop offset="1" stop-color="#89C879" stop-opacity="0.2" />
     </linearGradient>
+    <pattern id="nrGrid" width="84" height="84" patternUnits="userSpaceOnUse">
+      <path d="M84 0H0V84" stroke="#7CB26F" stroke-opacity="0.16" />
+    </pattern>
   </defs>
-  <path d="M-40 124C120 64 276 62 420 90C564 118 720 170 862 140C1004 110 1126 34 1284 30C1426 26 1510 74 1660 96V180H-40V124Z" fill="url(#g1)" />
-  <path d="M-80 74C88 136 258 140 420 112C584 84 744 20 900 24C1060 28 1210 92 1366 108C1494 122 1578 104 1680 84V180H-80V74Z" fill="url(#g2)" />
-  <g opacity="0.35">
-    <circle cx="196" cy="54" r="3" fill="#75B96A" />
-    <circle cx="420" cy="42" r="2.5" fill="#EEC65B" />
-    <circle cx="760" cy="68" r="3" fill="#75B96A" />
-    <circle cx="1028" cy="52" r="2.5" fill="#EEC65B" />
-    <circle cx="1310" cy="64" r="3" fill="#75B96A" />
+  <rect width="1600" height="220" fill="url(#nrBase)" />
+  <path d="M-120 138C84 94 286 78 488 98C690 118 874 170 1084 156C1294 142 1456 84 1720 106V220H-120V138Z" fill="url(#nrWaveA)" />
+  <path d="M-120 74C90 154 298 166 512 124C726 82 908 20 1124 30C1340 40 1534 120 1720 138V220H-120V74Z" fill="url(#nrWaveB)" />
+  <rect width="1600" height="220" fill="url(#nrGrid)" opacity="0.36" />
+  <g opacity="0.4">
+    <circle cx="240" cy="68" r="4" fill="#71B165" />
+    <circle cx="430" cy="54" r="3" fill="#EFC963" />
+    <circle cx="716" cy="72" r="4" fill="#71B165" />
+    <circle cx="996" cy="58" r="3" fill="#EFC963" />
+    <circle cx="1240" cy="76" r="4" fill="#71B165" />
+    <circle cx="1472" cy="62" r="3" fill="#EFC963" />
   </g>
 </svg>
