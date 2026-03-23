@@ -1,0 +1,296 @@
+import Image from "next/image";
+import Link from "next/link";
+import type { Metadata } from "next";
+import {
+  clinic,
+  doctors,
+  faqs,
+  gallery,
+  highlightedServices,
+  patientJourney,
+  servicesByCategory,
+  siteUrl,
+  testimonials
+} from "@/lib/clinic-data";
+import { CategoryVisual, JourneyVisual, SectionLeadVisual } from "@/components/section-visuals";
+
+export const metadata: Metadata = {
+  title: "Aesthetic, Dental, Skin & Hair Clinic in Malleswaram, Bangalore",
+  description:
+    "Book specialist dental, skin, hair and body treatments in Malleswaram, Bangalore. High-trust, premium care with personalized plans.",
+  keywords: [
+    "aesthetic clinic in Bangalore",
+    "dental clinic in Malleswaram",
+    "hair transplant Bangalore",
+    "skin treatment Bangalore",
+    "cosmetic dentistry Malleswaram"
+  ]
+};
+
+const localBusinessSchema = {
+  "@context": "https://schema.org",
+  "@type": "MedicalClinic",
+  name: clinic.name,
+  image: `${siteUrl}/hero/sl3.jpg`,
+  url: siteUrl,
+  telephone: clinic.primaryPhone,
+  email: clinic.email,
+  address: {
+    "@type": "PostalAddress",
+    streetAddress: clinic.address[0] + ", " + clinic.address[1],
+    addressLocality: "Bangalore",
+    addressRegion: "Karnataka",
+    postalCode: "560003",
+    addressCountry: "IN"
+  },
+  geo: {
+    "@type": "GeoCoordinates",
+    latitude: clinic.coordinates.latitude,
+    longitude: clinic.coordinates.longitude
+  },
+  sameAs: [clinic.social.instagram, clinic.social.facebook, clinic.social.youtube]
+};
+
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  mainEntity: faqs.map((faq) => ({
+    "@type": "Question",
+    name: faq.question,
+    acceptedAnswer: {
+      "@type": "Answer",
+      text: faq.answer
+    }
+  }))
+};
+
+export default function HomePage() {
+  return (
+    <>
+      <section className="hero">
+        <div className="hero-aurora" aria-hidden />
+        <div className="container hero-grid">
+          <div className="hero-copy">
+            <p className="kicker">Premium Aesthetic Care in Bangalore</p>
+            <h1>Meet Dr. Utkarsha. The Face Behind Bengaluru’s Premium Aesthetic Transformations.</h1>
+            <p className="lead">
+              Specialist-led dental, skin, hair and body care from Malleswaram. Built for patients who want standout
+              results with natural finish, safety, and clear treatment planning.
+            </p>
+            <div className="cta-row">
+              <a href={`tel:${clinic.primaryPhone.replace(/\s+/g, "")}`} className="btn btn-primary">
+                Book with Dr. Utkarsha
+              </a>
+              <a href={clinic.whatsapp} className="btn btn-secondary" target="_blank" rel="noreferrer">
+                WhatsApp Fast-Track
+              </a>
+            </div>
+            <div className="hero-meta">
+              <p>Internationally trained facial aesthetic surgeon</p>
+              <p>Doctor-led personalized treatment design</p>
+              <p>One premium destination for dental, skin, hair and body</p>
+            </div>
+          </div>
+          <div className="hero-star-card">
+            <span className="hero-badge hero-badge-top">Doctor-Led Since 2002</span>
+            <Image src="/doctors/dr-utkarsha.png" alt="Dr Utkarsha Lokesh" width={640} height={760} priority />
+            <div className="hero-star-overlay">
+              <span className="hero-badge hero-badge-bottom">Bangalore · Malleswaram</span>
+              <h2>Dr. Utkarsha Lokesh</h2>
+              <p>MDS, Fellowship in Aesthetic Medicine, Trichology</p>
+              <div className="mini-links">
+                <Link href="/services">Explore Transformations</Link>
+                <Link href="/businesses">Corporate Programs</Link>
+              </div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <div className="section-head">
+            <p className="kicker">Patient Experience</p>
+            <h2>Simple, High-Trust Process</h2>
+          </div>
+          <div className="grid four">
+            {patientJourney.map((item, index) => (
+              <article className="glass-card" key={item.step}>
+                <JourneyVisual index={index} />
+                <p className="step">{item.step}</p>
+                <h3>{item.title}</h3>
+                <p>{item.detail}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section highlight-surface">
+        <div className="container">
+          <div className="section-head">
+            <p className="kicker">Most Requested</p>
+            <h2>Featured Treatments in Bangalore</h2>
+          </div>
+          <div className="grid four">
+            {highlightedServices.map((service) => (
+              <article className="service-card" key={service.slug}>
+                <CategoryVisual category={service.category} />
+                <p className="service-category">{service.category}</p>
+                <h3>{service.title}</h3>
+                <p>{service.summary}</p>
+                <Link href={`/services/${service.slug}`}>View Treatment</Link>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <div className="section-head">
+            <p className="kicker">Experts</p>
+            <h2>Core Clinical Team</h2>
+          </div>
+          <div className="grid three">
+            {doctors.map((doctor) => (
+              <article key={doctor.name} className="doctor-card">
+                <Image src={doctor.image} alt={doctor.name} width={520} height={560} className="doctor-photo" />
+                <h3>{doctor.name}</h3>
+                <p className="doctor-role">{doctor.role}</p>
+                <p>{doctor.credentials}</p>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section gradient-block">
+        <div className="container dual">
+          <article>
+            <SectionLeadVisual type="patients" />
+            <p className="kicker">For Patients</p>
+            <h2>Book Consultation in Under 2 Minutes</h2>
+            <p>
+              Talk directly with the clinic team for treatment guidance, appointment slots, and next-step clarity
+              without unnecessary back-and-forth.
+            </p>
+            <a href={clinic.whatsapp} className="btn btn-primary" target="_blank" rel="noreferrer">
+              Start on WhatsApp
+            </a>
+          </article>
+          <article>
+            <SectionLeadVisual type="business" />
+            <p className="kicker">For Businesses</p>
+            <h2>Corporate Aesthetic and Grooming Partnerships</h2>
+            <p>
+              Build wellness and confidence programs for your team with structured skin, hair, and smile care journeys.
+            </p>
+            <Link href="/businesses" className="btn btn-secondary">
+              See Business Program
+            </Link>
+          </article>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <div className="section-head">
+            <p className="kicker">Gallery</p>
+            <h2>Clinic Highlights</h2>
+          </div>
+          <div className="grid three">
+            {gallery.slice(0, 9).map((item) => (
+              <article className="gallery-card" key={item.src}>
+                <Image src={item.src} alt={item.title} width={540} height={420} loading="lazy" />
+                <div>
+                  <h3>{item.title}</h3>
+                  {item.subtitle ? <p>{item.subtitle}</p> : null}
+                </div>
+              </article>
+            ))}
+          </div>
+          <p className="center mt">
+            <Link href="/gallery" className="btn btn-secondary">
+              View Full Gallery
+            </Link>
+          </p>
+        </div>
+      </section>
+
+      <section className="section highlight-surface">
+        <div className="container">
+          <div className="section-head">
+            <p className="kicker">What Patients Say</p>
+            <h2>Social Proof that Builds Trust</h2>
+          </div>
+          <div className="grid four">
+            {testimonials.map((testimonial) => (
+              <article key={testimonial.name} className="testimonial-card">
+                <p>“{testimonial.text}”</p>
+                <h3>{testimonial.name}</h3>
+              </article>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section">
+        <div className="container">
+          <div className="section-head">
+            <p className="kicker">FAQ</p>
+            <h2>Common Questions from Bangalore Patients</h2>
+          </div>
+          <div className="faq-list">
+            {faqs.map((faq) => (
+              <details key={faq.question}>
+                <summary>{faq.question}</summary>
+                <p>{faq.answer}</p>
+              </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="section final-cta">
+        <div className="container center">
+          <h2>Ready to Plan Your Treatment?</h2>
+          <p>
+            Visit the clinic in Malleswaram or connect online for a guided consultation.
+            <br />
+            <strong>{clinic.address.join(", ")}</strong>
+          </p>
+          <div className="cta-row center">
+            <a href={`tel:${clinic.primaryPhone.replace(/\s+/g, "")}`} className="btn btn-primary">
+              Call Now
+            </a>
+            <Link href="/contact" className="btn btn-secondary">
+              Contact & Directions
+            </Link>
+          </div>
+        </div>
+      </section>
+
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
+      />
+      <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(faqSchema) }} />
+      <script
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Person",
+            name: "Dr. Utkarsha Lokesh",
+            jobTitle: "Oral and Maxillofacial Surgeon",
+            worksFor: {
+              "@type": "MedicalClinic",
+              name: clinic.name
+            }
+          })
+        }}
+      />
+    </>
+  );
+}
