@@ -1,7 +1,7 @@
 import Link from "next/link";
 import { notFound } from "next/navigation";
 import type { Metadata } from "next";
-import Image from "next/image";
+import Image from "@/components/clinic-image";
 import {
   clinic,
   faqs,

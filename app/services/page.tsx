@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import Link from "next/link";
-import Image from "next/image";
+import Image from "@/components/clinic-image";
 import { getServiceImage, servicesByCategory } from "@/lib/clinic-data";
 
 export const metadata: Metadata = {

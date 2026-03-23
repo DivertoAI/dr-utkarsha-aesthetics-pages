@@ -1,5 +1,5 @@
 import type { Metadata } from "next";
-import Image from "next/image";
+import Image from "@/components/clinic-image";
 import { gallery } from "@/lib/clinic-data";
 
 export const metadata: Metadata = {
