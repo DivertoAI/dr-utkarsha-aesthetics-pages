@@ -426,6 +426,66 @@ li {
     linear-gradient(180deg, #f8fbe9 0%, #f2f9e9 46%, #eef6e9 100%);
 }
 
+.businesses-page {
+  background:
+    radial-gradient(circle at 100% 0%, rgba(255, 231, 128, 0.18), transparent 34%),
+    linear-gradient(180deg, #f8fdf5 0%, #f3faec 60%, #edf6e9 100%);
+}
+
+.business-chip-row {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.55rem;
+  margin: 0.9rem 0 1.05rem;
+}
+
+.business-chip-row span {
+  border-radius: 999px;
+  padding: 0.4rem 0.72rem;
+  border: 1px solid #d4e8c3;
+  background: #f6fdea;
+  font-size: 0.78rem;
+  font-weight: 700;
+  color: #355a36;
+}
+
+.business-play-grid {
+  gap: 1rem;
+}
+
+.business-play-card {
+  background: rgba(255, 255, 255, 0.96);
+  border: 1px solid #d7e7c8;
+}
+
+.business-play-card h2 {
+  margin-bottom: 0.25rem;
+}
+
+.business-play-index {
+  margin: 0 0 0.3rem;
+  font-size: 0.75rem;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  font-weight: 800;
+  color: #579255;
+}
+
+.business-play-audience {
+  margin-bottom: 0.6rem;
+  font-weight: 700;
+  color: #314f33;
+}
+
+.business-steps {
+  margin: 0.45rem 0 0;
+  padding-left: 1.2rem;
+}
+
+.business-steps li {
+  margin-bottom: 0.6rem;
+}
+
 .services-hero-card {
   display: grid;
   grid-template-columns: 1.1fr 1fr;
