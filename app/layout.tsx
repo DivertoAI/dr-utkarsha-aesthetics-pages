@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
-import Link from "next/link";
 import type { CSSProperties } from "react";
-import Image from "@/components/clinic-image";
+import SiteHeader from "@/components/site-header";
 import "./globals.css";
 import { clinic, siteUrl } from "@/lib/clinic-data";
 import { withBasePath } from "@/lib/base-path";
@@ -55,25 +54,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div className="page-ornament page-ornament-top" aria-hidden />
         <div className="page-ornament page-ornament-mid" aria-hidden />
         <div className="page-ornament page-ornament-bottom" aria-hidden />
-        <header className="site-header">
-          <div className="container nav-wrap">
-            <Link href="/" className="brand" aria-label="Dr Utkarsha Aesthetics home">
-              <span className="brand-logo-wrap">
-                <Image src="/logo/clinic-logo.png" alt="Dr Utkarsha Aesthetics logo" width={320} height={100} priority />
-              </span>
-            </Link>
-            <nav className="nav">
-              {navLinks.map((link) => (
-                <Link key={link.href} href={link.href} className="nav-link">
-                  {link.label}
-                </Link>
-              ))}
-            </nav>
-            <a className="nav-cta" href={clinic.whatsapp} target="_blank" rel="noreferrer">
-              WhatsApp
-            </a>
-          </div>
-        </header>
+        <SiteHeader navLinks={navLinks} whatsappLink={clinic.whatsapp} />
 
         <main>{children}</main>
 
