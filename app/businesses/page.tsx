@@ -89,17 +89,17 @@ export default function BusinessesPage() {
         </section>
 
         <section className="final-cta final-cta-inset">
-          <h2>Start Partner Outreach</h2>
+          <h2>Start a Business Partnership Discussion</h2>
           <p>
-            Share your priority segment and pilot target list. We can structure scripts, offer formats, and conversion
-            tracking for each category.
+            Connect directly with the clinic team to discuss partnership models, pilot structure, and onboarding for
+            your organization.
           </p>
           <div className="cta-row center">
             <a className="btn btn-primary" href={clinic.whatsapp} target="_blank" rel="noreferrer">
-              WhatsApp Partner Desk
+              WhatsApp Business Desk
             </a>
             <a className="btn btn-secondary" href={`mailto:${clinic.email}?subject=Corporate%20Program%20Enquiry`}>
-              Email Outreach Plan
+              Email Partnership Team
             </a>
           </div>
         </section>
