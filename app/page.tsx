@@ -148,14 +148,14 @@ const quickTreatmentPaths = [
     href: "/services/dental-implants-in-malleswaram"
   },
   {
-    label: "Hair",
-    focus: "Transplant & regrowth",
-    href: "/services/hair-transplant-in-malleswaram"
-  },
-  {
     label: "Skin",
     focus: "Acne to rejuvenation",
     href: "/services/acne-treatment-malleswaram"
+  },
+  {
+    label: "Hair",
+    focus: "Transplant & regrowth",
+    href: "/services/hair-transplant-in-malleswaram"
   },
   {
     label: "Body",
